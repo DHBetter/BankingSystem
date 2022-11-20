@@ -2,7 +2,7 @@ package com.bank;
 
 import java.util.Scanner;
 
-public class menu {
+class menu {
     public static void startMenu(){
         System.out.println("\n" +
                 "1. Create an account\n" +

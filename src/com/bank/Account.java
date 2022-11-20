@@ -7,6 +7,8 @@ class Account {
     private String pinNumber;
     private double balance;
 
+    Account(){
+    }
     public Account(String cardNumber, String pinNumber, double balance) {
         this.cardNumber = cardNumber;
         this.pinNumber = pinNumber;
