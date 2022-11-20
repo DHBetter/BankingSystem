@@ -8,11 +8,12 @@ public class Main {
 
         menu();
 
-
     }
     public static void menu(){
         Scanner scanner = new Scanner(System.in);
-        Account account = new Account();
+        Account account;
+        accountManager accountmanager = new accountManager();
+        User user = new User();
         int menuNumber = 0;
         while(menuNumber != 3) {
             System.out.println("");
@@ -23,11 +24,12 @@ public class Main {
             int number = scanner.nextInt();
             switch (number) {
                 case 1:
-                    System.out.println(account.cardNum());
-                    System.out.println(account.pinNum());
+                    accountmanager.createAccount();
+                    //Arrays.toString()
+                    //accountmanager.displayAccount(0);
                     break;
                 case 2:
-
+                    System.out.println(user.cardNum());
                     break;
                 case 3:
                     menuNumber = 3;
