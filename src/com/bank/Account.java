@@ -1,5 +1,4 @@
 package com.bank;
-//import java.util.*;
 
 import java.util.Random;
 
@@ -8,10 +7,10 @@ class Account {
     private String pinNumber;
     private double balance;
 
-    public Account(String newCard, String newPin, double newBalance) {
-        cardNumber = newCard;
-        pinNumber = newPin;
-        balance = newBalance;
+    public Account(String cardNumber, String pinNumber, double balance) {
+        this.cardNumber = cardNumber;
+        this.pinNumber = pinNumber;
+        this.balance = balance;
     }
     public String getCardNumber() {
         return cardNumber;
