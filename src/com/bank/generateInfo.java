@@ -7,8 +7,31 @@ public class generateInfo {
     //Account a;
 
     public String cardNum() {
+        String BIN = "400000";
         int randomCard = random.nextInt(1000000000);
-        String cardNumber = "40000" + String.format("%011d", randomCard);
+        String cardNumber = BIN + String.format("%09d", randomCard);
+        int luhnVerification = 0;
+
+        //System.out.println("generated card number: " + randomCard);
+
+        for (int i = 0; i < cardNumber.length(); i++) {
+            int item = Character.getNumericValue(cardNumber.charAt(i));
+            System.out.println(item);
+
+            int temp = 0;
+            if (i%2 == 0) {
+                System.out.println("charAt(i) is: " + item);
+                System.out.println("temp is: " + temp);
+                temp = item * 2;
+                System.out.println("temp is: " + temp);
+                luhnVerification = luhnVerification + temp;
+
+
+            }
+            else
+                luhnVerification =  luhnVerification + cardNumber.charAt(i);
+        }
+        System.out.println(luhnVerification);
         return cardNumber;
     }
     public String pinNum() {
