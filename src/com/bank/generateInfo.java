@@ -1,14 +1,14 @@
 package com.bank;
 import java.util.*;
+import java.util.Random;
 
 public class generateInfo {
     Random random = new Random();
     //Account a;
 
     public String cardNum() {
-        long randomCard = random.nextLong(1000000000000000L);
-        System.out.println("               random card is " + randomCard);
-        String cardNumber = "4" + String.format("%014d", randomCard);
+        int randomCard = random.nextInt(1000000000);
+        String cardNumber = "40000" + String.format("%011d", randomCard);
         return cardNumber;
     }
     public String pinNum() {
