@@ -8,30 +8,24 @@ public class generateInfo {
 
     public String cardNum() {
         String BIN = "400000";
-        int randomCard = random.nextInt(1000000000);
-        String cardNumber = BIN + String.format("%09d", randomCard);
+        String itemNumber = String.format("%09d",random.nextInt(1000000000));
         int luhnVerification = 0;
 
-        //System.out.println("generated card number: " + randomCard);
-
-        for (int i = 0; i < cardNumber.length(); i++) {
-            int item = Character.getNumericValue(cardNumber.charAt(i));
-            System.out.println(item);
-
+        for (int i = 0; i < itemNumber.length(); i++) {
+            int item = Character.getNumericValue(itemNumber.charAt(i));
             int temp = 0;
             if (i%2 == 0) {
-                System.out.println("charAt(i) is: " + item);
-                System.out.println("temp is: " + temp);
                 temp = item * 2;
-                System.out.println("temp is: " + temp);
+                if ( temp > 9) {
+                    temp = temp - 9;
+                }
                 luhnVerification = luhnVerification + temp;
-
-
             }
             else
-                luhnVerification =  luhnVerification + cardNumber.charAt(i);
+                luhnVerification =  luhnVerification + item;
         }
-        System.out.println(luhnVerification);
+        luhnVerification = 10 - luhnVerification%10 ;
+        String cardNumber = "400000" + itemNumber + String.valueOf(luhnVerification);
         return cardNumber;
     }
     public String pinNum() {
