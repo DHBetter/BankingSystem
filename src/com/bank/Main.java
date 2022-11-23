@@ -13,7 +13,7 @@ public class Main {
         generateInfo gI = new generateInfo();
         boolean loggedLoop = true;
 
-        while (menuLoop == true) {
+        while (menuLoop) {
             menu.startMenu();
             int menuNum = scanner.nextInt();
             switch (menuNum) {
@@ -41,7 +41,7 @@ public class Main {
                     if (item == false) {
                         break;
                     }
-                    while (loggedLoop == true) {
+                    while (loggedLoop) {
                         menu.loggedMenu();
                         int loggedIn = scanner.nextInt();
                         if (loggedIn == 0) {

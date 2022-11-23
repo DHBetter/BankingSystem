@@ -4,15 +4,16 @@ import java.util.Random;
 
 public class generateInfo {
     Random random = new Random();
-    //Account a;
 
     public String cardNum() {
         String BIN = "400000";
         String itemNumber = String.format("%09d",random.nextInt(1000000000));
         int luhnVerification = 0;
+        String cardNumber = BIN + itemNumber;
 
-        for (int i = 0; i < itemNumber.length(); i++) {
-            int item = Character.getNumericValue(itemNumber.charAt(i));
+
+        for (int i = 0; i < cardNumber.length(); i++) {
+            int item = Character.getNumericValue(cardNumber.charAt(i));
             int temp = 0;
             if (i%2 == 0) {
                 temp = item * 2;
@@ -25,8 +26,11 @@ public class generateInfo {
                 luhnVerification =  luhnVerification + item;
         }
         luhnVerification = 10 - luhnVerification%10 ;
-        String cardNumber = "400000" + itemNumber + String.valueOf(luhnVerification);
-        return cardNumber;
+        if (luhnVerification == 10) {
+            luhnVerification = 0;
+        }
+        String cardNumberVerified = cardNumber + String.valueOf(luhnVerification);
+        return cardNumberVerified;
     }
     public String pinNum() {
         int randomPin = random.nextInt(9999);
